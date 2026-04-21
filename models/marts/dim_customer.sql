@@ -14,6 +14,7 @@ order_summary as(
     group by customer_unique_id
 )
 
+final as (
 select
 c.customer_unique_id,
 c.customer_city,
@@ -32,5 +33,5 @@ end as customer_segment
 from customer c
 left join order_summary o
       on c.customer_unique_id = o.customer_unique_id
-
+)
 select * from final
